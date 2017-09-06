@@ -6,3 +6,12 @@
   max-height: 400px;
   overflow: auto;
 }
+
+.small-text-box {
+  margin: 10px;
+  height: 30px;
+}
+
+.btn {
+  margin: 10px;
+}

@@ -1,10 +1,26 @@
 /* Fill out these functions using Mongoose queries*/
+var fs = require('fs'),
+  mongoose = require('mongoose'), 
+  Schema = mongoose.Schema, 
+  Listing = require('./ListingSchema.js'), 
+  config = require('./config');
 
-var findLibraryWest = function() {
+/* Connect to your database */
+mongoose.connect('mongodb://SWEnghw3:hw3@ds129144.mlab.com:29144/uf_directory_listings');
+var connection = mongoose.connection;
+connection.on("connected", function() {
+console.log("connected to database");
+});
+
+var findLibraryWest = function(err, listings) {
   /* 
     Find the document that contains data corresponding to Library West,
     then log it to the console. 
    */
+  Listing.find({name: 'Library West'}, function(err, listing) {
+    if (err) throw err;
+    console.log(listing);
+  });
 };
 var removeCable = function() {
   /*
@@ -12,17 +28,29 @@ var removeCable = function() {
     on cable TV. Since we live in the 21st century and most courses are now web based, go ahead
     and remove this listing from your database and log the document to the console. 
    */
+  Listing.findOneAndRemove({code: 'CABL'}, function(err) {
+    if (err) throw err;
+    console.log('User deleted!');
+  });
 };
 var updatePhelpsMemorial = function() {
   /*
     Phelps Memorial Hospital Center's address is incorrect. Find the listing, update it, and then 
     log the updated document to the console. 
    */
+  Listing.findOneAndUpdate({code: 'PHL'}, {address: '1275 Center Drive, Gainesville, FL 32611-6131'}, function(err, listing) {
+    if (err) throw err;
+    console.log(listing);
+  });
 };
 var retrieveAllListings = function() {
   /* 
     Retrieve all listings in the database, and log them to the console. 
    */
+  Listing.find({}, function(err, users) {
+    if (err) throw err;
+    console.log(users);
+  })
 };
 
 findLibraryWest();

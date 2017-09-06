@@ -44,9 +44,17 @@
 
           <!-- Form function below adds new listings -->
           <form ng-submit="addListing()">
-            <input type="text" class="small-text-box" placeholder="Code" name="code" ng-model="code"><!--
-            --><input type="text" class="small-text-box" placeholder="Building Name" name="name" ng-model="name"><!--
-            --><input type="submit" class="btn" value="Add">
+            <h4 class="form-header">Add New Listing:</h4>
+            <h5 class="form-lable">Code:</h5>
+            <h5 class="form-lable lable2">Building Name:</h5><br>
+            <input type="text" class="small-text-box" placeholder="Code" name="code" ng-model="code">
+            <input type="text" class="small-text-box" placeholder="Building Name" name="name" ng-model="name"><br>
+            <h5>Coordinates:</h5>
+            <input type="text" class="small-text-box" placeholder="Latitude" name="latitude" ng-model="latitude">
+            <input type="text" class="small-text-box" placeholder="Longitude" name="longitude" ng-model="longitude"><br>
+            <h5>Address:</h5>
+            <input type="text" class="small-text-box" placeholder="Address" name="address" ng-model="address"><br>    
+            <input type="submit" class="btn" value="Add"><br>
           </form>
 
         </div>

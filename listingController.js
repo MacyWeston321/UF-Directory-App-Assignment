@@ -7,9 +7,12 @@ angular.module('listings').controller('ListingsController', ['$scope', 'Listings
       as described in the assignment spec. 
      */
     $scope.addListing = function() {
-      $scope.listings.push({'code':$scope.code, 'name':$scope.name});
+      $scope.listings.push({'code':$scope.code, 'name':$scope.name, 'coordinates':{'latitude':$scope.latitude, 'longitude':$scope.longitude}, 'address':$scope.address});
       $scope.code='';
       $scope.name='';
+      $scope.latitude='';
+      $scope.longitude='';
+      $scope.address='';
     };
 
     $scope.deleteListing = function(index) {
